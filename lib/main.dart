@@ -32,18 +32,23 @@ class Ball extends StatefulWidget {
 
 class _BallState extends State<Ball> {
   int ballNumber = 1;
+  Color bgColor = Colors.blue;
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: TextButton(
-          onPressed: () {
-            setState(() {
-              ballNumber = Random().nextInt(5) + 1;
-            });
-            print('ball number is $ballNumber');
-          },
-          child: Image.asset('images/ball$ballNumber.png')),
+    return Container(
+      color: bgColor,
+      child: Center(
+        child: TextButton(
+            onPressed: () {
+              setState(() {
+                ballNumber = Random().nextInt(5) + 1;
+                bgColor = Color((Random().nextDouble() * 0xffffff).toInt())
+                    .withOpacity(1);
+              });
+            },
+            child: Image.asset('images/ball$ballNumber.png')),
+      ),
     );
   }
 }
