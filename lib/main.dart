@@ -41,6 +41,7 @@ class _BallState extends State<Ball> {
             setState(() {
               ballNumber = Random().nextInt(5) + 1;
             });
+            print('ball number is $ballNumber');
           },
           child: Image.asset('images/ball$ballNumber.png')),
     );
